@@ -1,5 +1,6 @@
 package com.petscreening.demo.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,10 +22,10 @@ public class PetController {
 	@QueryMapping
 	public Boolean isEligible(@Argument Long id) {
 		PetFilter filter = new PetFilter();
-		filter.setWeight(25.0f);
-		filter.setVaccinated(true);
-		filter.setBreed("Poodle");
-		filter.setTrainingLevel(3);
+		filter.setMaxWeight(25.0f);
+		filter.setHasVaccination(true);
+		filter.setRestrictedBreeds(Arrays.asList("Poodle"));
+		filter.setMinTrainingLevel(3);
 		
 		return petService.isEligible(id, filter);
 	}
@@ -39,11 +40,6 @@ public class PetController {
 		return petService.getPetById(id);
 	}
 
-	@QueryMapping
-	public List<Pet> getPetsByBreed(@Argument String breed) {
-		return petService.getPetsByBreed(breed);
-	}
-	
 	@MutationMapping
 	public Pet createPet(@Argument String name, @Argument Float weight, @Argument String breed, 
 			@Argument Boolean vaccinated, @Argument Integer trainingLevel) {
@@ -54,10 +50,5 @@ public class PetController {
 		pet.setVaccinated(vaccinated);
 		pet.setTrainingLevel(trainingLevel);
 		return petService.save(pet);
-	}
-	
-	@MutationMapping
-	public Pet updateTrainingLevel(@Argument Long id, @Argument Integer trainingLevel) {
-		return petService.updateTrainingLevel(id, trainingLevel);
 	}
 }

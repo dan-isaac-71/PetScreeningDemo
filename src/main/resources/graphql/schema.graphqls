@@ -1,15 +1,14 @@
 type Query {
 	getPets(filter: PetFilter): [Pet]
 	getPetById(id: ID): Pet
-	getPetsByBreed(breed: String): [Pet]
 	isEligible(id: ID!): Boolean
 }
 
 input PetFilter {
-	weight: Float
-	breed: String
-	vaccinated: Boolean
-	trainingLevel: Int
+	maxWeight: Float
+	restrictedBreeds: [String]
+	hasVaccination: Boolean
+	minTrainingLevel: Int
 }
 
 type Pet {
@@ -23,5 +22,4 @@ type Pet {
 
 type Mutation {
 	createPet(name: String!, weight: Float!, breed: String!, vaccinated: Boolean!, trainingLevel: Int!): Pet
-	updateTrainingLevel(id: ID!, trainingLevel: Int!): Pet
 }

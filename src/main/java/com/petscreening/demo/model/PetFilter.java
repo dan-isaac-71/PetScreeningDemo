@@ -1,36 +1,38 @@
 package com.petscreening.demo.model;
 
+import java.util.List;
+
 public class PetFilter {
-    private Float weight;
-	private String breed;
-	private Boolean vaccinated;
-	private Integer	trainingLevel;
+    private Float maxWeight;
+	private List<String> restrictedBreeds;
+	private Boolean hasVaccination;
+	private Integer	minTrainingLevel;
 	
 	
 	public PetFilter() {}
 	
-	public Float getWeight() {
-		return weight;
+	public Float getMaxWeight() {
+		return maxWeight;
 	}
-	public void setWeight(Float weight) {
-		this.weight = weight;
+	public void setMaxWeight(Float maxWeight) {
+		this.maxWeight = maxWeight;
 	}
-	public String getBreed() {
-		return breed;
+	public List<String> getRestrictedBreeds() {
+		return restrictedBreeds;
 	}
-	public void setBreed(String breed) {
-		this.breed = breed;
+	public void setRestrictedBreeds(List<String> restrictedBreeds) {
+		this.restrictedBreeds = restrictedBreeds;
 	}
-	public Boolean getVaccinated() {
-		return vaccinated;
+	public Boolean getHasVaccination() {
+		return hasVaccination;
 	}
-	public void setVaccinated(Boolean vaccinated) {
-		this.vaccinated = vaccinated;
+	public void setHasVaccination(Boolean hasVaccination) {
+		this.hasVaccination = hasVaccination;
 	}
-	public Integer getTrainingLevel() {
-		return trainingLevel;
+	public Integer getMinTrainingLevel() {
+		return minTrainingLevel;
 	}
-	public void setTrainingLevel(Integer trainingLevel) {
-		this.trainingLevel = trainingLevel;
+	public void setMinTrainingLevel(Integer minTrainingLevel) {
+		this.minTrainingLevel = minTrainingLevel;
 	}
 }
