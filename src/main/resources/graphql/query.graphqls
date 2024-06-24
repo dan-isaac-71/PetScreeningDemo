@@ -1,5 +1,0 @@
-type Query {
-	getPets: [Pet]
-	getPetById(id: ID): Pet
-	getPetsByBreed(breed: String): [Pet]
-}

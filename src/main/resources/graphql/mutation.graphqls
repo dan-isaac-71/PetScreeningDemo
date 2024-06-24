@@ -1,4 +1,0 @@
-type Mutation {
-	createPet(name: String!, weight: Float!, breed: String!, vaccinated: Boolean!, trainingLevel: Int!): Pet
-	updateTrainingLevel(id: ID!, trainingLevel: Int!): Pet
-}
