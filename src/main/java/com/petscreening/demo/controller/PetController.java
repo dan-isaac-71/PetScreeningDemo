@@ -43,6 +43,9 @@ public class PetController {
 	@MutationMapping
 	public Pet createPet(@Argument String name, @Argument Float weight, @Argument String breed, 
 			@Argument Boolean vaccinated, @Argument Integer trainingLevel) {
+		if(trainingLevel > 10 || trainingLevel < 1) {
+			return null;
+		}
 		Pet pet = new Pet();
 		pet.setName(name);
 		pet.setWeight(weight);
